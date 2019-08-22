@@ -4,6 +4,7 @@ package bodega;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.ParseConversionEvent;
 
 
 public class Bodega {
@@ -106,6 +107,8 @@ public class Bodega {
                         
                         conect.insercion = conect.conexion.prepareStatement("UPDATE paquete SET id_pc="+pcInicio+" WHERE id_paquete="+idPaquete+";");
                         conect.insercion.executeUpdate();
+                        
+                        conect.setDataTime(idPaquete);
                         return true;
                     }
             }

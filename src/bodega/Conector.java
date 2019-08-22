@@ -32,5 +32,19 @@ public class Conector {
             e.printStackTrace();
         } 
     }
+    
+    public String obtenertime() throws SQLException{
+        stmt = conexion.createStatement();
+        res = stmt.executeQuery("select now();");
+        while(res.next()){
+            return res.getString(1);
+        }
+        return res.getString(1);
+    }
+        
+    public void setDataTime(int id) throws SQLException{
+        insercion = conexion.prepareStatement("UPDATE paquete SET tiempo_pc='"+obtenertime()+"' WHERE id_paquete="+id+";");
+        insercion.executeUpdate();
+    }
    
 }
