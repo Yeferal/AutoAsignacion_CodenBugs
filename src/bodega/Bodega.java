@@ -100,6 +100,7 @@ public class Bodega {
             while (conect.res.next()) {
                 
                     pcInicio = Integer.parseInt(conect.res.getString(11));
+                    String idRuta = conect.res.getString(1);
                     if(verificarEspacio(pcInicio)<capacidadPC(pcInicio)){
                         
                         conect.insercion = conect.conexion.prepareStatement("DELETE FROM bodega WHERE id_pqt="+idPaquete+";");
@@ -109,6 +110,7 @@ public class Bodega {
                         conect.insercion.executeUpdate();
                         
                         conect.setDataTime(idPaquete);
+                        conect.setDestinarPaquete(idRuta);
                         return true;
                     }
             }

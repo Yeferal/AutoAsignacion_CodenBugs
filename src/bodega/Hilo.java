@@ -19,7 +19,6 @@ public class Hilo extends Thread{
             while (true) {
             bodega.correrTuples();
             inicio.vBodega.rellenarTabla();
-            System.out.println("Corre");
             sleep(2000);  
         }
                       

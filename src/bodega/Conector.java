@@ -46,5 +46,31 @@ public class Conector {
         insercion = conexion.prepareStatement("UPDATE paquete SET tiempo_pc='"+obtenertime()+"', tiempo_ingreso='"+obtenertime()+"' WHERE id_paquete="+id+";");
         insercion.executeUpdate();
     }
+    
+    
+    
+    public void setDestinarPaquete(String idRuta){
+        int endestinoNuevo = getEnDestinoPaq(idRuta)+1;
+        try {
+            insercion = conexion.prepareStatement("UPDATE ruta SET paquetes_endestino="+endestinoNuevo+" WHERE id_ruta="+idRuta+";");
+            insercion.executeUpdate();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+    }
+    
+    private int getEnDestinoPaq(String idRuta){
+        int destinoP= 0;
+        try {
+            stmt = conexion.createStatement();
+            res = stmt.executeQuery("SELECT * FROM ruta WHERE id_ruta="+idRuta+";");
+            res.next();
+            destinoP = Integer.parseInt(res.getString(10));
+        } catch (SQLException ex) {
+            ex.getMessage();
+            ex.printStackTrace();
+        }
+        return destinoP;
+    }
    
 }
