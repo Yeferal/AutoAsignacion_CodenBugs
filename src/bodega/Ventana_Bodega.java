@@ -27,7 +27,6 @@ public class Ventana_Bodega extends javax.swing.JFrame {
                 return false;
             }  
         };
-        
         modelo1.addColumn("ID Bodega");
         modelo1.addColumn("Destino Paquete");
         modelo1.addColumn("Priorizado");
@@ -40,7 +39,6 @@ public class Ventana_Bodega extends javax.swing.JFrame {
             conect.res = conect.stmt.executeQuery("SELECT * FROM bodega ORDER BY priorizado_pq DESC;");
             
             while (conect.res.next()) {
-                System.out.println("SIIII");
                 datos[0] = conect.res.getString(1);
                 datos[1] = conect.res.getString(2);
                 if(conect.res.getString(3).equals("0")){

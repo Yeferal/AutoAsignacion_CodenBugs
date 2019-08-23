@@ -56,7 +56,7 @@ public class Bodega {
  
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Bodega.class.getName()).log(Level.SEVERE, null, ex);
+            ex.getMessage();
         }
            return numeroPaquetes;
        }

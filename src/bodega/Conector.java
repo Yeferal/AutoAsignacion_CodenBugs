@@ -43,7 +43,7 @@ public class Conector {
     }
         
     public void setDataTime(int id) throws SQLException{
-        insercion = conexion.prepareStatement("UPDATE paquete SET tiempo_pc='"+obtenertime()+"' WHERE id_paquete="+id+";");
+        insercion = conexion.prepareStatement("UPDATE paquete SET tiempo_pc='"+obtenertime()+"', tiempo_ingreso='"+obtenertime()+"' WHERE id_paquete="+id+";");
         insercion.executeUpdate();
     }
    
